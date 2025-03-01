@@ -6,6 +6,7 @@ import { getSlideTransformEl } from '../../shared/utils.mjs';
 export default function EffectFade({ swiper, extendParams, on }) {
   extendParams({
     fadeEffect: {
+      delay: 0,
       crossFade: false,
     },
   });
@@ -33,9 +34,12 @@ export default function EffectFade({ swiper, extendParams, on }) {
     }
   };
   const setTransition = (duration) => {
+    const { delay } = swiper.params.fadeEffect;
     const transformElements = swiper.slides.map((slideEl) => getSlideTransformEl(slideEl));
     transformElements.forEach((el) => {
       el.style.transitionDuration = `${duration}ms`;
+      if (delay > 0 && duration > 0) el.style.transitionDelay = `${delay}ms`;
+      else el.style.transitionDelay = '0ms';
     });
 
     effectVirtualTransitionEnd({ swiper, duration, transformElements, allSlides: true });

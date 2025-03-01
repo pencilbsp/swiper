@@ -9,4 +9,11 @@ export interface FadeEffectOptions {
    * @default false
    */
   crossFade?: boolean;
+
+  /**
+   * Enables slides delay fade effect
+   *
+   * @default 0
+   */
+  delay?: number;
 }
