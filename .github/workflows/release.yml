@@ -31,12 +31,14 @@ jobs:
     
     - name: Deploy to release branch
       run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout --orphan release  # Tạo branch release (nếu chưa có)
-          git rm -rf .  # Xóa tất cả file hiện tại
-          mv dist/* .  # Di chuyển nội dung của dist lên root
-          rm -rf dist  # Xóa thư mục dist (không cần thiết nữa)
-          git add .
-          git commit -m "Deploy latest build"
-          git push --force origin release  # Ghi đè branch release
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git checkout --orphan release
+        git rm -rf .
+        mv dist/* .
+        rm -rf dist node_modules  # Xóa thư mục node_modules trước khi commit
+        echo "node_modules/" >> .gitignore  # Đảm bảo Git bỏ qua node_modules
+        git add .gitignore
+        git add .
+        git commit -m "Deploy latest build (without node_modules)"
+        git push --force origin release
