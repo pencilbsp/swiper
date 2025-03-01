@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/build",
     "build:prod": "node scripts/build --prod",
+    "build:submodule": "node scripts/build-submodule --prod",
     "build-icons-font": "python ./scripts/icon-font/generate.py",
     "watch": "node scripts/watch",
     "demos": "npm run build && concurrently --kill-others \"vite ./demos/\" \"npm run watch\" ",
