@@ -8,11 +8,6 @@ export interface ScrollbarMethods {
   el: HTMLElement;
 
   /**
-   * Classname for scrollbar container element
-   */
-  className: string;
-
-  /**
    * HTMLElement of Scrollbar draggable handler element
    */
   dragEl: HTMLElement;
@@ -79,6 +74,11 @@ export interface ScrollbarOptions {
    * @default null
    */
   el?: CSSSelector | HTMLElement | null;
+
+  /**
+   * Classname for scrollbar container element
+   */
+  className?: string;
 
   /**
    * Hide scrollbar automatically after user interaction
