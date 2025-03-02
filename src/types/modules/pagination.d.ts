@@ -8,6 +8,11 @@ export interface PaginationMethods {
   el: HTMLElement;
 
   /**
+   * Classname for pagination container element
+   */
+  className: string;
+
+  /**
    * Array of pagination bullets
    * HTML elements. To get specific slide HTMLElement
    * use `swiper.pagination.bullets[1]`.

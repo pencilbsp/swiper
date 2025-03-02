@@ -8,6 +8,11 @@ export interface ScrollbarMethods {
   el: HTMLElement;
 
   /**
+   * Classname for scrollbar container element
+   */
+  className: string;
+
+  /**
    * HTMLElement of Scrollbar draggable handler element
    */
   dragEl: HTMLElement;

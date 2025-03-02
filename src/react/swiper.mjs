@@ -211,10 +211,22 @@ const Swiper = forwardRef(
             </>
           )}
           {needsScrollbar(swiperParams) && (
-            <div ref={scrollbarElRef} className="swiper-scrollbar" />
+            <div
+              ref={scrollbarElRef}
+              className={uniqueClasses(
+                `swiper-scrollbar${
+                  swiperParams.scrollbar.className ? ` ${swiperParams.scrollbar.className}` : ''
+                }`,
+              )}
+            />
           )}
           {needsPagination(swiperParams) && (
-            <div ref={paginationElRef} className="swiper-pagination" />
+            <div
+              ref={paginationElRef}
+              className={`swiper-pagination${
+                swiperParams.pagination.className ? ` ${swiperParams.pagination.className}` : ''
+              }`}
+            />
           )}
           {slots['container-end']}
         </SwiperContext.Provider>
